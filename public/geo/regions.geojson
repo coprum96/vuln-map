@@ -1,0 +1,197 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb",
+        "name": "Санкт-Петербург",
+        "score": 74,
+        "riskLevel": "high",
+        "trend": "worsening",
+        "deltaPercent": 8.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [29.2, 59.2],
+            [31.5, 59.2],
+            [31.8, 60.1],
+            [30.3, 60.8],
+            [28.8, 60.1],
+            [29.2, 59.2]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "msk",
+        "name": "Москва",
+        "score": 61,
+        "riskLevel": "medium",
+        "trend": "improving",
+        "deltaPercent": -5.1
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [36.8, 55.2],
+            [38.5, 55.2],
+            [38.8, 56.0],
+            [37.6, 56.5],
+            [36.5, 56.0],
+            [36.8, 55.2]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nvs",
+        "name": "Новосибирск",
+        "score": 58,
+        "riskLevel": "medium",
+        "trend": "improving",
+        "deltaPercent": -3.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [82.0, 54.4],
+            [83.8, 54.4],
+            [84.0, 55.2],
+            [82.9, 55.8],
+            [81.8, 55.2],
+            [82.0, 54.4]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "svr",
+        "name": "Екатеринбург",
+        "score": 68,
+        "riskLevel": "high",
+        "trend": "worsening",
+        "deltaPercent": 6.4
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [59.8, 56.3],
+            [61.4, 56.3],
+            [61.6, 57.1],
+            [60.6, 57.6],
+            [59.5, 57.1],
+            [59.8, 56.3]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "tat",
+        "name": "Казань",
+        "score": 52,
+        "riskLevel": "medium",
+        "trend": "improving",
+        "deltaPercent": -7.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [48.4, 55.2],
+            [49.9, 55.2],
+            [50.1, 56.0],
+            [49.1, 56.5],
+            [48.0, 56.0],
+            [48.4, 55.2]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "krd",
+        "name": "Краснодар",
+        "score": 79,
+        "riskLevel": "critical",
+        "trend": "worsening",
+        "deltaPercent": 11.3
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [38.2, 44.5],
+            [39.8, 44.5],
+            [40.0, 45.3],
+            [39.0, 45.9],
+            [37.8, 45.3],
+            [38.2, 44.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "niz",
+        "name": "Нижний Новгород",
+        "score": 63,
+        "riskLevel": "high",
+        "trend": "worsening",
+        "deltaPercent": 2.1
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [43.2, 55.7],
+            [44.7, 55.7],
+            [44.9, 56.5],
+            [43.9, 57.0],
+            [42.8, 56.5],
+            [43.2, 55.7]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ros",
+        "name": "Ростов-на-Дону",
+        "score": 71,
+        "riskLevel": "high",
+        "trend": "worsening",
+        "deltaPercent": 5.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [39.0, 46.7],
+            [40.5, 46.7],
+            [40.7, 47.5],
+            [39.7, 48.0],
+            [38.6, 47.5],
+            [39.0, 46.7]
+          ]
+        ]
+      }
+    }
+  ]
+}

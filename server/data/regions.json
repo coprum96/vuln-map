@@ -1,0 +1,562 @@
+[
+  {
+    "id": "spb",
+    "score": 74,
+    "score2024": 68,
+    "riskLevel": "high",
+    "clusters": {
+      "c0": 45,
+      "c1": 31,
+      "c2": 24
+    },
+    "deltaPercent": 8.2,
+    "trend": "worsening",
+    "center": [
+      30.32,
+      59.95
+    ],
+    "finance": {
+      "avgLossRub": 45000,
+      "largeLossPercent": 23,
+      "annualExposureMln": 68
+    },
+    "scenarioIds": [
+      "bank_call",
+      "sms_phishing",
+      "invest_fraud"
+    ],
+    "dominantCluster": 0
+  },
+  {
+    "id": "msk",
+    "score": 61,
+    "score2024": 64,
+    "riskLevel": "medium",
+    "clusters": {
+      "c0": 52,
+      "c1": 18,
+      "c2": 30
+    },
+    "deltaPercent": -5.1,
+    "trend": "improving",
+    "center": [
+      37.62,
+      55.75
+    ],
+    "finance": {
+      "avgLossRub": 62000,
+      "largeLossPercent": 31,
+      "annualExposureMln": 95
+    },
+    "scenarioIds": [
+      "invest_fraud",
+      "pseudo_gos",
+      "bank_call"
+    ],
+    "dominantCluster": 0
+  },
+  {
+    "id": "nvs",
+    "score": 58,
+    "score2024": 60,
+    "riskLevel": "medium",
+    "clusters": {
+      "c0": 49,
+      "c1": 22,
+      "c2": 29
+    },
+    "deltaPercent": -3.8,
+    "trend": "improving",
+    "center": [
+      82.93,
+      55.03
+    ],
+    "finance": {
+      "avgLossRub": 28000,
+      "largeLossPercent": 15,
+      "annualExposureMln": 31
+    },
+    "scenarioIds": [
+      "sms_phishing",
+      "bank_call",
+      "online_fraud"
+    ],
+    "dominantCluster": 0
+  },
+  {
+    "id": "svr",
+    "score": 68,
+    "score2024": 64,
+    "riskLevel": "high",
+    "clusters": {
+      "c0": 44,
+      "c1": 28,
+      "c2": 28
+    },
+    "deltaPercent": 6.4,
+    "trend": "worsening",
+    "center": [
+      60.61,
+      56.84
+    ],
+    "finance": {
+      "avgLossRub": 35000,
+      "largeLossPercent": 18,
+      "annualExposureMln": 42
+    },
+    "scenarioIds": [
+      "bank_call",
+      "invest_fraud",
+      "sms_phishing"
+    ],
+    "dominantCluster": 0
+  },
+  {
+    "id": "tat",
+    "score": 52,
+    "score2024": 56,
+    "riskLevel": "medium",
+    "clusters": {
+      "c0": 51,
+      "c1": 19,
+      "c2": 30
+    },
+    "deltaPercent": -7.2,
+    "trend": "improving",
+    "center": [
+      49.12,
+      55.79
+    ],
+    "finance": {
+      "avgLossRub": 24000,
+      "largeLossPercent": 12,
+      "annualExposureMln": 28
+    },
+    "scenarioIds": [
+      "pseudo_gos",
+      "sms_phishing",
+      "bank_call"
+    ],
+    "dominantCluster": 0
+  },
+  {
+    "id": "krd",
+    "score": 79,
+    "score2024": 71,
+    "riskLevel": "critical",
+    "clusters": {
+      "c0": 40,
+      "c1": 35,
+      "c2": 25
+    },
+    "deltaPercent": 11.3,
+    "trend": "worsening",
+    "center": [
+      39,
+      45.04
+    ],
+    "finance": {
+      "avgLossRub": 38000,
+      "largeLossPercent": 21,
+      "annualExposureMln": 51
+    },
+    "scenarioIds": [
+      "bank_call",
+      "sms_phishing",
+      "resort_fraud"
+    ],
+    "dominantCluster": 0
+  },
+  {
+    "id": "niz",
+    "score": 63,
+    "score2024": 62,
+    "riskLevel": "high",
+    "clusters": {
+      "c0": 48,
+      "c1": 26,
+      "c2": 26
+    },
+    "deltaPercent": 2.1,
+    "trend": "worsening",
+    "center": [
+      44,
+      56.33
+    ],
+    "finance": {
+      "avgLossRub": 31000,
+      "largeLossPercent": 16,
+      "annualExposureMln": 36
+    },
+    "scenarioIds": [
+      "sms_phishing",
+      "bank_call",
+      "pseudo_gos"
+    ],
+    "dominantCluster": 0
+  },
+  {
+    "id": "ros",
+    "score": 71,
+    "score2024": 67,
+    "riskLevel": "high",
+    "clusters": {
+      "c0": 46,
+      "c1": 29,
+      "c2": 25
+    },
+    "deltaPercent": 5.7,
+    "trend": "worsening",
+    "center": [
+      39.72,
+      47.24
+    ],
+    "finance": {
+      "avgLossRub": 33000,
+      "largeLossPercent": 17,
+      "annualExposureMln": 43
+    },
+    "scenarioIds": [
+      "bank_call",
+      "sms_phishing",
+      "invest_fraud"
+    ],
+    "dominantCluster": 0
+  },
+  {
+    "id": "vgg",
+    "score": 73,
+    "score2024": 69,
+    "riskLevel": "high",
+    "clusters": {
+      "c0": 43,
+      "c1": 31,
+      "c2": 26
+    },
+    "deltaPercent": 5.8,
+    "trend": "worsening",
+    "center": [
+      44.51,
+      48.71
+    ],
+    "finance": {
+      "avgLossRub": 29000,
+      "largeLossPercent": 19,
+      "annualExposureMln": 39
+    },
+    "scenarioIds": [
+      "bank_call",
+      "pseudo_gos",
+      "sms_phishing"
+    ],
+    "dominantCluster": 0
+  },
+  {
+    "id": "sta",
+    "score": 56,
+    "score2024": 58,
+    "riskLevel": "medium",
+    "clusters": {
+      "c0": 47,
+      "c1": 27,
+      "c2": 26
+    },
+    "deltaPercent": -3.4,
+    "trend": "improving",
+    "center": [
+      41.97,
+      45.04
+    ],
+    "finance": {
+      "avgLossRub": 26000,
+      "largeLossPercent": 14,
+      "annualExposureMln": 27
+    },
+    "scenarioIds": [
+      "resort_fraud",
+      "bank_call",
+      "sms_phishing"
+    ],
+    "dominantCluster": 0
+  },
+  {
+    "id": "sam",
+    "score": 57,
+    "score2024": 59,
+    "riskLevel": "medium",
+    "clusters": {
+      "c0": 50,
+      "c1": 24,
+      "c2": 26
+    },
+    "deltaPercent": -3.4,
+    "trend": "improving",
+    "center": [
+      50.15,
+      53.2
+    ],
+    "finance": {
+      "avgLossRub": 27000,
+      "largeLossPercent": 15,
+      "annualExposureMln": 33
+    },
+    "scenarioIds": [
+      "sms_phishing",
+      "bank_call",
+      "pseudo_gos"
+    ],
+    "dominantCluster": 0
+  },
+  {
+    "id": "bas",
+    "score": 54,
+    "score2024": 57,
+    "riskLevel": "medium",
+    "clusters": {
+      "c0": 48,
+      "c1": 25,
+      "c2": 27
+    },
+    "deltaPercent": -5.3,
+    "trend": "improving",
+    "center": [
+      55.97,
+      54.74
+    ],
+    "finance": {
+      "avgLossRub": 25000,
+      "largeLossPercent": 13,
+      "annualExposureMln": 30
+    },
+    "scenarioIds": [
+      "pseudo_gos",
+      "bank_call",
+      "online_fraud"
+    ],
+    "dominantCluster": 0
+  },
+  {
+    "id": "che",
+    "score": 67,
+    "score2024": 63,
+    "riskLevel": "high",
+    "clusters": {
+      "c0": 46,
+      "c1": 27,
+      "c2": 27
+    },
+    "deltaPercent": 6.3,
+    "trend": "worsening",
+    "center": [
+      61.4,
+      55.16
+    ],
+    "finance": {
+      "avgLossRub": 32000,
+      "largeLossPercent": 17,
+      "annualExposureMln": 41
+    },
+    "scenarioIds": [
+      "bank_call",
+      "invest_fraud",
+      "sms_phishing"
+    ],
+    "dominantCluster": 0
+  },
+  {
+    "id": "per",
+    "score": 65,
+    "score2024": 62,
+    "riskLevel": "high",
+    "clusters": {
+      "c0": 45,
+      "c1": 28,
+      "c2": 27
+    },
+    "deltaPercent": 4.8,
+    "trend": "worsening",
+    "center": [
+      56.25,
+      58.01
+    ],
+    "finance": {
+      "avgLossRub": 30000,
+      "largeLossPercent": 16,
+      "annualExposureMln": 38
+    },
+    "scenarioIds": [
+      "sms_phishing",
+      "bank_call",
+      "invest_fraud"
+    ],
+    "dominantCluster": 0
+  },
+  {
+    "id": "kya",
+    "score": 59,
+    "score2024": 61,
+    "riskLevel": "medium",
+    "clusters": {
+      "c0": 47,
+      "c1": 26,
+      "c2": 27
+    },
+    "deltaPercent": -3.3,
+    "trend": "improving",
+    "center": [
+      92.87,
+      56.01
+    ],
+    "finance": {
+      "avgLossRub": 29000,
+      "largeLossPercent": 14,
+      "annualExposureMln": 34
+    },
+    "scenarioIds": [
+      "online_fraud",
+      "sms_phishing",
+      "bank_call"
+    ],
+    "dominantCluster": 0
+  },
+  {
+    "id": "irk",
+    "score": 47,
+    "score2024": 51,
+    "riskLevel": "low",
+    "clusters": {
+      "c0": 53,
+      "c1": 20,
+      "c2": 27
+    },
+    "deltaPercent": -7.8,
+    "trend": "improving",
+    "center": [
+      104.28,
+      52.29
+    ],
+    "finance": {
+      "avgLossRub": 22000,
+      "largeLossPercent": 11,
+      "annualExposureMln": 24
+    },
+    "scenarioIds": [
+      "online_fraud",
+      "bank_call",
+      "sms_phishing"
+    ],
+    "dominantCluster": 0
+  },
+  {
+    "id": "pri",
+    "score": 70,
+    "score2024": 66,
+    "riskLevel": "high",
+    "clusters": {
+      "c0": 41,
+      "c1": 33,
+      "c2": 26
+    },
+    "deltaPercent": 6.1,
+    "trend": "worsening",
+    "center": [
+      131.89,
+      43.12
+    ],
+    "finance": {
+      "avgLossRub": 34000,
+      "largeLossPercent": 20,
+      "annualExposureMln": 46
+    },
+    "scenarioIds": [
+      "bank_call",
+      "online_fraud",
+      "invest_fraud"
+    ],
+    "dominantCluster": 0
+  },
+  {
+    "id": "kha",
+    "score": 56,
+    "score2024": 58,
+    "riskLevel": "medium",
+    "clusters": {
+      "c0": 46,
+      "c1": 28,
+      "c2": 26
+    },
+    "deltaPercent": -3.4,
+    "trend": "improving",
+    "center": [
+      135.07,
+      48.48
+    ],
+    "finance": {
+      "avgLossRub": 27000,
+      "largeLossPercent": 15,
+      "annualExposureMln": 29
+    },
+    "scenarioIds": [
+      "bank_call",
+      "sms_phishing",
+      "online_fraud"
+    ],
+    "dominantCluster": 0
+  },
+  {
+    "id": "kal",
+    "score": 44,
+    "score2024": 48,
+    "riskLevel": "low",
+    "clusters": {
+      "c0": 54,
+      "c1": 17,
+      "c2": 29
+    },
+    "deltaPercent": -8.3,
+    "trend": "improving",
+    "center": [
+      20.51,
+      54.71
+    ],
+    "finance": {
+      "avgLossRub": 21000,
+      "largeLossPercent": 10,
+      "annualExposureMln": 19
+    },
+    "scenarioIds": [
+      "online_fraud",
+      "invest_fraud",
+      "sms_phishing"
+    ],
+    "dominantCluster": 0
+  },
+  {
+    "id": "vrn",
+    "score": 53,
+    "score2024": 55,
+    "riskLevel": "medium",
+    "clusters": {
+      "c0": 49,
+      "c1": 24,
+      "c2": 27
+    },
+    "deltaPercent": -3.6,
+    "trend": "improving",
+    "center": [
+      39.18,
+      51.67
+    ],
+    "finance": {
+      "avgLossRub": 23000,
+      "largeLossPercent": 12,
+      "annualExposureMln": 26
+    },
+    "scenarioIds": [
+      "pseudo_gos",
+      "sms_phishing",
+      "bank_call"
+    ],
+    "dominantCluster": 0
+  }
+]

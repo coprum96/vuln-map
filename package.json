@@ -1,0 +1,40 @@
+{
+  "name": "vulnmap",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:server": "node server/index.mjs",
+    "dev:all": "concurrently \"npm run dev\" \"npm run dev:server\"",
+    "build": "tsc && vite build",
+    "typecheck": "tsc --noEmit",
+    "check:phase1": "tsx scripts/phase1-check.ts"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "cors": "^2.8.5",
+    "d3-array": "^3.2.4",
+    "d3-geo": "^3.1.1",
+    "express": "^4.19.2",
+    "lucide-react": "^1.17.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recharts": "^2.12.7"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/d3-geo": "^3.1.0",
+    "@types/express": "^4.17.21",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "autoprefixer": "^10.4.19",
+    "concurrently": "^8.2.2",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4",
+    "tsx": "^4.15.7",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.0"
+  }
+}

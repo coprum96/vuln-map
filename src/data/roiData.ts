@@ -1,0 +1,38 @@
+import type { RoiModel } from '../types';
+
+export const ROI_MODEL: RoiModel = {
+  scenarios: [
+    {
+      id: 'bau',
+      years: [
+        { year: 2026, damageBln: 162 },
+        { year: 2027, damageBln: 180 },
+        { year: 2028, damageBln: 200 },
+      ],
+      totalBln: 542,
+    },
+    {
+      id: 'partial',
+      years: [
+        { year: 2026, damageBln: 130 },
+        { year: 2027, damageBln: 115 },
+        { year: 2028, damageBln: 100 },
+      ],
+      totalBln: 345,
+      savingsBln: 197,
+    },
+    {
+      id: 'full',
+      years: [
+        { year: 2026, damageBln: 110 },
+        { year: 2027, damageBln: 85 },
+        { year: 2028, damageBln: 65 },
+      ],
+      totalBln: 260,
+      savingsBln: 282,
+    },
+  ],
+  investmentMln: 3.25,
+  roiMultiplier: 86,
+  sensitivity: { worst: 71, best: 98 },
+};

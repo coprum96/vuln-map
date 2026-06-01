@@ -1,0 +1,258 @@
+import type { Region } from '../types';
+
+function trendFromDelta(delta: number): Region['trend'] {
+  if (delta > 1) return 'worsening';
+  if (delta < -1) return 'improving';
+  return 'stable';
+}
+
+function dominantCluster(clusters: Region['clusters']): Region['dominantCluster'] {
+  const entries: [0 | 1 | 2, number][] = [
+    [0, clusters.c0],
+    [1, clusters.c1],
+    [2, clusters.c2],
+  ];
+  entries.sort((a, b) => b[1] - a[1]);
+  return entries[0]?.[0] ?? 0;
+}
+
+function region(
+  partial: Omit<Region, 'trend' | 'dominantCluster'> & {
+    clusters: Region['clusters'];
+  },
+): Region {
+  return {
+    ...partial,
+    trend: trendFromDelta(partial.deltaPercent),
+    dominantCluster: dominantCluster(partial.clusters),
+  };
+}
+
+export const REGIONS: Region[] = [
+  region({
+    id: 'spb',
+    score: 74,
+    score2024: 68,
+    riskLevel: 'high',
+    clusters: { c0: 45, c1: 31, c2: 24 },
+    deltaPercent: 8.2,
+    center: [59.95, 30.32],
+    finance: { avgLossRub: 45_000, largeLossPercent: 23, annualExposureMln: 68 },
+    scenarioIds: ['bank_call', 'sms_phishing', 'invest_fraud'],
+  }),
+  region({
+    id: 'msk',
+    score: 61,
+    score2024: 64,
+    riskLevel: 'medium',
+    clusters: { c0: 52, c1: 18, c2: 30 },
+    deltaPercent: -5.1,
+    center: [55.75, 37.62],
+    finance: { avgLossRub: 62_000, largeLossPercent: 31, annualExposureMln: 95 },
+    scenarioIds: ['invest_fraud', 'pseudo_gos', 'bank_call'],
+  }),
+  region({
+    id: 'nvs',
+    score: 58,
+    score2024: 60,
+    riskLevel: 'medium',
+    clusters: { c0: 49, c1: 22, c2: 29 },
+    deltaPercent: -3.8,
+    center: [55.03, 82.93],
+    finance: { avgLossRub: 28_000, largeLossPercent: 15, annualExposureMln: 31 },
+    scenarioIds: ['sms_phishing', 'bank_call', 'online_fraud'],
+  }),
+  region({
+    id: 'svr',
+    score: 68,
+    score2024: 64,
+    riskLevel: 'high',
+    clusters: { c0: 44, c1: 28, c2: 28 },
+    deltaPercent: 6.4,
+    center: [56.84, 60.61],
+    finance: { avgLossRub: 35_000, largeLossPercent: 18, annualExposureMln: 42 },
+    scenarioIds: ['bank_call', 'invest_fraud', 'sms_phishing'],
+  }),
+  region({
+    id: 'tat',
+    score: 52,
+    score2024: 56,
+    riskLevel: 'medium',
+    clusters: { c0: 51, c1: 19, c2: 30 },
+    deltaPercent: -7.2,
+    center: [55.79, 49.12],
+    finance: { avgLossRub: 24_000, largeLossPercent: 12, annualExposureMln: 28 },
+    scenarioIds: ['pseudo_gos', 'sms_phishing', 'bank_call'],
+  }),
+  region({
+    id: 'krd',
+    score: 79,
+    score2024: 71,
+    riskLevel: 'critical',
+    clusters: { c0: 40, c1: 35, c2: 25 },
+    deltaPercent: 11.3,
+    center: [45.04, 39.0],
+    finance: { avgLossRub: 38_000, largeLossPercent: 21, annualExposureMln: 51 },
+    scenarioIds: ['bank_call', 'sms_phishing', 'resort_fraud'],
+  }),
+  region({
+    id: 'niz',
+    score: 63,
+    score2024: 62,
+    riskLevel: 'high',
+    clusters: { c0: 48, c1: 26, c2: 26 },
+    deltaPercent: 2.1,
+    center: [56.33, 44.0],
+    finance: { avgLossRub: 31_000, largeLossPercent: 16, annualExposureMln: 36 },
+    scenarioIds: ['sms_phishing', 'bank_call', 'pseudo_gos'],
+  }),
+  region({
+    id: 'ros',
+    score: 71,
+    score2024: 67,
+    riskLevel: 'high',
+    clusters: { c0: 46, c1: 29, c2: 25 },
+    deltaPercent: 5.7,
+    center: [47.24, 39.72],
+    finance: { avgLossRub: 33_000, largeLossPercent: 17, annualExposureMln: 43 },
+    scenarioIds: ['bank_call', 'sms_phishing', 'invest_fraud'],
+  }),
+  region({
+    id: 'vgg',
+    score: 73,
+    score2024: 69,
+    riskLevel: 'high',
+    clusters: { c0: 43, c1: 31, c2: 26 },
+    deltaPercent: 5.8,
+    center: [48.71, 44.51],
+    finance: { avgLossRub: 29_000, largeLossPercent: 19, annualExposureMln: 39 },
+    scenarioIds: ['bank_call', 'pseudo_gos', 'sms_phishing'],
+  }),
+  region({
+    id: 'sta',
+    score: 56,
+    score2024: 58,
+    riskLevel: 'medium',
+    clusters: { c0: 47, c1: 27, c2: 26 },
+    deltaPercent: -3.4,
+    center: [45.04, 41.97],
+    finance: { avgLossRub: 26_000, largeLossPercent: 14, annualExposureMln: 27 },
+    scenarioIds: ['resort_fraud', 'bank_call', 'sms_phishing'],
+  }),
+  region({
+    id: 'sam',
+    score: 57,
+    score2024: 59,
+    riskLevel: 'medium',
+    clusters: { c0: 50, c1: 24, c2: 26 },
+    deltaPercent: -3.4,
+    center: [53.2, 50.15],
+    finance: { avgLossRub: 27_000, largeLossPercent: 15, annualExposureMln: 33 },
+    scenarioIds: ['sms_phishing', 'bank_call', 'pseudo_gos'],
+  }),
+  region({
+    id: 'bas',
+    score: 54,
+    score2024: 57,
+    riskLevel: 'medium',
+    clusters: { c0: 48, c1: 25, c2: 27 },
+    deltaPercent: -5.3,
+    center: [54.74, 55.97],
+    finance: { avgLossRub: 25_000, largeLossPercent: 13, annualExposureMln: 30 },
+    scenarioIds: ['pseudo_gos', 'bank_call', 'online_fraud'],
+  }),
+  region({
+    id: 'che',
+    score: 67,
+    score2024: 63,
+    riskLevel: 'high',
+    clusters: { c0: 46, c1: 27, c2: 27 },
+    deltaPercent: 6.3,
+    center: [55.16, 61.4],
+    finance: { avgLossRub: 32_000, largeLossPercent: 17, annualExposureMln: 41 },
+    scenarioIds: ['bank_call', 'invest_fraud', 'sms_phishing'],
+  }),
+  region({
+    id: 'per',
+    score: 65,
+    score2024: 62,
+    riskLevel: 'high',
+    clusters: { c0: 45, c1: 28, c2: 27 },
+    deltaPercent: 4.8,
+    center: [58.01, 56.25],
+    finance: { avgLossRub: 30_000, largeLossPercent: 16, annualExposureMln: 38 },
+    scenarioIds: ['sms_phishing', 'bank_call', 'invest_fraud'],
+  }),
+  region({
+    id: 'kya',
+    score: 59,
+    score2024: 61,
+    riskLevel: 'medium',
+    clusters: { c0: 47, c1: 26, c2: 27 },
+    deltaPercent: -3.3,
+    center: [56.01, 92.87],
+    finance: { avgLossRub: 29_000, largeLossPercent: 14, annualExposureMln: 34 },
+    scenarioIds: ['online_fraud', 'sms_phishing', 'bank_call'],
+  }),
+  region({
+    id: 'irk',
+    score: 47,
+    score2024: 51,
+    riskLevel: 'low',
+    clusters: { c0: 53, c1: 20, c2: 27 },
+    deltaPercent: -7.8,
+    center: [52.29, 104.28],
+    finance: { avgLossRub: 22_000, largeLossPercent: 11, annualExposureMln: 24 },
+    scenarioIds: ['online_fraud', 'bank_call', 'sms_phishing'],
+  }),
+  region({
+    id: 'pri',
+    score: 70,
+    score2024: 66,
+    riskLevel: 'high',
+    clusters: { c0: 41, c1: 33, c2: 26 },
+    deltaPercent: 6.1,
+    center: [43.12, 131.89],
+    finance: { avgLossRub: 34_000, largeLossPercent: 20, annualExposureMln: 46 },
+    scenarioIds: ['bank_call', 'online_fraud', 'invest_fraud'],
+  }),
+  region({
+    id: 'kha',
+    score: 56,
+    score2024: 58,
+    riskLevel: 'medium',
+    clusters: { c0: 46, c1: 28, c2: 26 },
+    deltaPercent: -3.4,
+    center: [48.48, 135.07],
+    finance: { avgLossRub: 27_000, largeLossPercent: 15, annualExposureMln: 29 },
+    scenarioIds: ['bank_call', 'sms_phishing', 'online_fraud'],
+  }),
+  region({
+    id: 'kal',
+    score: 44,
+    score2024: 48,
+    riskLevel: 'low',
+    clusters: { c0: 54, c1: 17, c2: 29 },
+    deltaPercent: -8.3,
+    center: [54.71, 20.51],
+    finance: { avgLossRub: 21_000, largeLossPercent: 10, annualExposureMln: 19 },
+    scenarioIds: ['online_fraud', 'invest_fraud', 'sms_phishing'],
+  }),
+  region({
+    id: 'vrn',
+    score: 53,
+    score2024: 55,
+    riskLevel: 'medium',
+    clusters: { c0: 49, c1: 24, c2: 27 },
+    deltaPercent: -3.6,
+    center: [51.67, 39.18],
+    finance: { avgLossRub: 23_000, largeLossPercent: 12, annualExposureMln: 26 },
+    scenarioIds: ['pseudo_gos', 'sms_phishing', 'bank_call'],
+  }),
+];
+
+export const REGIONS_BY_ID = Object.fromEntries(
+  REGIONS.map((r) => [r.id, r]),
+) as Record<Region['id'], Region>;
+
+export const REGION_IDS = REGIONS.map((r) => r.id);
