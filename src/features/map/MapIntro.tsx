@@ -1,19 +1,15 @@
 import { ru } from '../../content/ru';
 
+/** Краткий контекст экрана — на desktop скрыт (есть header + легенда). */
 export function MapIntro() {
   return (
-    <section className="shrink-0 border-b border-page-border bg-[#FAFBFC] px-5 py-2">
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <div className="min-w-0">
-          <h2 className="text-sm font-bold text-cbr-navy">{ru.mapScreen.title}</h2>
-          <p className="mt-0.5 text-xs leading-snug text-page-muted">
-            {ru.mapScreen.subtitle}
-          </p>
-        </div>
-        <p className="hidden shrink-0 text-[11px] text-page-muted md:block">
-          {ru.mapScreen.mapHint}
-        </p>
-      </div>
+    <section className="shrink-0 border-b border-page-border bg-[#FAFBFC] px-3 py-0.5 sm:px-4 lg:hidden">
+      <h2 className="text-[12px] font-bold leading-tight text-cbr-navy sm:text-[13px]">
+        {ru.mapScreen.title}
+      </h2>
+      <p className="mt-px text-[10px] leading-snug text-page-muted sm:text-[11px]">
+        {ru.mapScreen.subtitle}
+      </p>
     </section>
   );
 }

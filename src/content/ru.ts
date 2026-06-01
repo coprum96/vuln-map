@@ -2,16 +2,16 @@ import type { ClusterId, RegionId, RiskLevel, ScenarioId, TrendDirection } from 
 
 export const ru = {
   app: {
-    title: 'VulnMap',
+    title: 'Сова',
     subtitle: 'Надзорная аналитика | ФинТехЛаб СПбГУ',
     logo: 'ФТЛ',
     study: 'Исследование 2024–2025 | 15 000 респондентов',
     exportReport: 'Экспорт отчёта',
   },
   header: {
-    productName: 'VulnMap',
+    productName: 'Сова',
     descriptor: 'Надзорная аналитика уязвимости',
-    markAria: 'VulnMap',
+    markAria: 'Сова — надзорная аналитика',
     metaSuptech: 'SupTech',
     metaPilot: 'Пилот 2024–2025',
     metaObservation: 'Пилотное наблюдение',
@@ -235,7 +235,7 @@ export const ru = {
     },
     export: {
       title: 'КРАТКАЯ НАДЗОРНАЯ ЗАПИСКА',
-      subtitle: 'VulnMap · пилотное наблюдение',
+      subtitle: 'Сова · пилотное наблюдение',
       region: 'СУБЪЕКТ',
       riskLevel: 'УРОВЕНЬ РИСКА',
       conclusion: 'КЛЮЧЕВОЙ ВЫВОД',

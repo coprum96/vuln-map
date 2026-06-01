@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import { useCallback, useMemo, useState } from 'react';
 import type { RegionId } from '../../types';
-import { regionName, ru } from '../../content/ru';
 import { useFilters } from '../../hooks/useFilters';
 import { useMapData } from '../../hooks/useMapData';
 import { MapEmptyState } from './MapEmptyState';
@@ -60,28 +59,35 @@ export function MapScreen({ selectedId, onSelect }: MapScreenProps) {
         onPeriod={setPeriod}
         onRisk={setRisk}
       />
-      <MapSummaryStrip summary={summary} onPriorityClick={handlePriorityClick} />
-      <MapQuickActions
-        selectedId={selectedId}
-        onOpenMsk={() => openPilot('msk')}
-        onOpenSpb={() => openPilot('spb')}
-        onShowCritical={handleShowCritical}
-      />
+
+      <div className="shrink-0 border-b border-[#E0E6ED] bg-white lg:flex lg:items-center lg:justify-between">
+        <MapSummaryStrip
+          summary={summary}
+          onPriorityClick={handlePriorityClick}
+          embedded
+        />
+        <MapQuickActions
+          selectedId={selectedId}
+          onOpenMsk={() => openPilot('msk')}
+          onOpenSpb={() => openPilot('spb')}
+          onShowCritical={handleShowCritical}
+          embedded
+        />
+      </div>
 
       <div
         className={clsx(
-          'relative min-h-0 flex-1 bg-[#EEF2F6] transition-[padding] duration-250 ease-out',
-          sidebarOpen && 'md:pr-[min(420px,100%)]',
+          'relative min-h-0 flex-1 bg-[#E8ECF0] transition-[padding] duration-250 ease-out',
+          sidebarOpen && 'lg:pr-[min(420px,100%)]',
         )}
       >
-        <div className="absolute inset-0 flex min-h-0 flex-col p-1.5 sm:p-2">
-          {selectedId ? (
-            <div className="mb-1.5 shrink-0 rounded-md border border-cbr-navy/20 bg-white/95 px-2 py-1 text-[11px] text-cbr-navy shadow-sm sm:px-2.5 sm:text-xs">
-              <span className="text-page-muted">{ru.mapScreen.selectionHint}: </span>
-              <span className="font-semibold">{regionName(selectedId)}</span>
-            </div>
-          ) : null}
-          <div className="relative min-h-[200px] flex-1 overflow-hidden rounded-md border border-[#D5DCE5] bg-[#F5F7FA] shadow-inner">
+        <div className="absolute inset-0 flex min-h-0 flex-col p-0">
+          <div
+            className={clsx(
+              'relative min-h-0 flex-1 overflow-hidden bg-[#F3F6F9]',
+              'border-y border-[#D5DCE5] lg:border lg:border-[#CCD4DE] lg:shadow-sm',
+            )}
+          >
             <RussiaMapSVG
               selectedId={selectedId}
               onSelect={onSelect}

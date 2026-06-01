@@ -36,11 +36,15 @@ export function createRussiaProjection(
   const scaleW = projWidth.scale() ?? 500;
   const scaleH = projHeight.scale() ?? 500;
 
-  let scale = Math.min(scaleW, scaleH) * 0.95;
+  const aspect = innerW / innerH;
+  let scale = Math.min(scaleW, scaleH) * 0.98;
 
-  // На широких экранах заполняем по ширине (Россия вытянута по долготе).
-  if (innerW / innerH > 1.2) {
-    scale = scaleW * 0.92;
+  // На широких экранах — заполнение по ширине (Россия вытянута по долготе).
+  if (aspect > 1.2) {
+    scale = scaleW * 0.96;
+  }
+  if (aspect > 1.55) {
+    scale = scaleW * 0.99;
   }
 
   return geoMercator()

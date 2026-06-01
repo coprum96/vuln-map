@@ -31,8 +31,8 @@ export function MapFiltersBar({
   onRisk,
 }: MapFiltersBarProps) {
   return (
-    <div className="shrink-0 border-b border-page-border bg-white px-3 py-2.5 sm:px-5 sm:py-3">
-      <div className="mx-auto grid max-w-3xl grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
+    <div className="shrink-0 border-b border-page-border bg-white px-3 py-1 sm:px-4">
+      <div className="grid grid-cols-1 gap-1.5 md:grid-cols-2 md:gap-2 xl:flex xl:flex-row xl:items-end xl:gap-5 xl:gap-y-0">
         <MapFilterGroup label={ru.mapScreen.filters.period}>
           <MapSegment
             label={ru.mapScreen.filters.period2025}
@@ -46,7 +46,7 @@ export function MapFiltersBar({
           />
         </MapFilterGroup>
 
-        <MapFilterGroup label={ru.mapScreen.filters.riskLevel}>
+        <MapFilterGroup label={ru.mapScreen.filters.riskLevel} className="xl:min-w-0 xl:flex-1">
           {RISK_OPTIONS.map((opt) => (
             <MapSegment
               key={opt}

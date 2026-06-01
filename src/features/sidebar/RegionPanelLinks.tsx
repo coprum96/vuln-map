@@ -63,7 +63,7 @@ export function RegionPanelLinks({ region }: RegionPanelLinksProps) {
   const handleExport = () => {
     const text = buildRegionTxt(region);
     downloadBlob(
-      `vulnmap-${region.id}-memo.txt`,
+      `sova-${region.id}-memo.txt`,
       text,
       'text/plain;charset=utf-8',
     );

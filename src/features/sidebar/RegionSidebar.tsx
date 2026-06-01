@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { ChevronDown, X } from 'lucide-react';
 import { useMemo } from 'react';
 import type { Region } from '../../types';
+import { HEADER_HEIGHT_PX } from '../../constants/layout';
 import { getRecommendations } from '../../data/recommendations';
 import { AppIcon } from '../../components/icons/AppIcon';
 import { regionName, ru } from '../../content/ru';
@@ -66,46 +67,50 @@ export function RegionSidebar({ region, onClose }: RegionSidebarProps) {
   return (
     <aside
       className={clsx(
-        'fixed top-14 z-40 flex flex-col border-l-4 border-l-cbr-red bg-white shadow-[-10px_0_32px_rgba(28,63,110,0.18)] transition-transform duration-250 ease-out',
-        'right-0 h-[calc(100vh-56px)] w-full max-w-[420px]',
-        'max-md:inset-x-0 max-md:max-w-none',
-        open ? 'translate-x-0' : 'translate-x-full max-md:translate-x-full',
+        'fixed z-40 flex flex-col border-l-4 border-l-cbr-red bg-white shadow-[-10px_0_32px_rgba(28,63,110,0.18)] transition-transform duration-250 ease-out',
+        'right-0 w-full max-w-[420px]',
+        'max-lg:inset-x-0 max-lg:max-w-none',
+        open ? 'translate-x-0' : 'translate-x-full',
       )}
+      style={{
+        top: HEADER_HEIGHT_PX,
+        height: `calc(100vh - ${HEADER_HEIGHT_PX}px)`,
+      }}
       aria-hidden={!open}
       role="dialog"
       aria-label={ru.mapScreen.sidebar.title}
     >
       {region && analytics ? (
         <>
-          <div className="relative shrink-0 border-b border-page-border bg-[#F7F9FC] px-4 py-2.5 pr-11 sm:px-5 sm:py-3 sm:pr-12">
+          <div className="relative shrink-0 border-b border-page-border bg-[#F7F9FC] px-4 py-2.5 pr-12 sm:px-5 sm:py-3">
             <p className="text-[10px] font-semibold uppercase tracking-wide text-cbr-navy">
               {ru.mapScreen.sidebar.title}
             </p>
-            <p className="mt-0.5 text-[11px] leading-snug text-page-muted sm:text-xs">
+            <p className="mt-0.5 text-xs leading-snug text-page-muted">
               {ru.mapScreen.sidebar.subtitle}
             </p>
             <button
               type="button"
               onClick={onClose}
-              className="absolute right-2 top-2 flex h-8 w-8 items-center justify-center rounded-md border border-page-border bg-white text-page-muted hover:bg-[#EEF3F8] sm:right-3 sm:top-3"
+              className="absolute right-2 top-2 flex h-10 w-10 items-center justify-center rounded-md border border-page-border bg-white text-page-muted hover:bg-[#EEF3F8] sm:right-3"
               aria-label={ru.mapScreen.sidebar.close}
             >
-              <AppIcon icon={X} size={18} className="text-page-muted" />
+              <AppIcon icon={X} size={20} className="text-page-muted" />
             </button>
           </div>
 
           <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 pb-5 sm:px-5 sm:pb-6">
             <header className="border-b border-[#E8ECF0] py-3">
               <div className="flex flex-wrap items-start justify-between gap-2">
-                <h2 className="max-w-[calc(100%-4rem)] break-words text-xl font-bold leading-tight text-cbr-navy sm:text-[22px]">
+                <h2 className="max-w-[calc(100%-4.5rem)] break-words text-xl font-bold leading-tight text-cbr-navy">
                   {regionName(region.id)}
                 </h2>
                 <RiskBadge level={region.riskLevel} />
               </div>
               <div className="mt-2.5 flex items-end justify-between gap-3">
                 <div>
-                  <p className="text-[11px] text-page-muted">{ru.drilldown.index}</p>
-                  <p className="text-[38px] font-bold leading-none text-cbr-red sm:text-[42px]">
+                  <p className="text-xs text-page-muted">{ru.drilldown.index}</p>
+                  <p className="text-[36px] font-bold leading-none text-cbr-red sm:text-[42px]">
                     {region.score}
                     <span className="text-lg font-semibold text-page-muted sm:text-xl">
                       /100
@@ -114,7 +119,7 @@ export function RegionSidebar({ region, onClose }: RegionSidebarProps) {
                 </div>
                 <div className="shrink-0 text-right">
                   <TrendArrow direction={region.trend} value={deltaStr} />
-                  <p className="text-[11px] text-page-muted">{ru.drilldown.vs2024}</p>
+                  <p className="text-xs text-page-muted">{ru.drilldown.vs2024}</p>
                 </div>
               </div>
             </header>

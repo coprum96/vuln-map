@@ -12,6 +12,6 @@ export const phase2Ru = {
     txt: 'TXT',
     csv: 'CSV',
     json: 'JSON',
-    filenamePrefix: 'vulnmap-report',
+    filenamePrefix: 'sova-report',
   },
 } as const;

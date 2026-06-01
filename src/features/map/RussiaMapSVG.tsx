@@ -5,6 +5,7 @@ import {
   useRef,
   useState,
   type MouseEvent,
+  type TouchEvent,
 } from 'react';
 import { geoPath } from 'd3-geo';
 import type { Feature, FeatureCollection, Geometry } from 'geojson';
@@ -48,7 +49,23 @@ const INTERNAL_STROKE = '#DDE3EA';
 const OUTLINE_STROKE = '#5A7A9A';
 const SELECTED_STROKE = '#C8102E';
 const SELECTED_HALO = '#1C3F6E';
-const MAP_PADDING = 28;
+/** Внутренний отступ проекции (меньше = крупнее карта в контейнере) */
+function mapPaddingForSize(width: number, height: number): number {
+  if (width >= 1280 && height >= 520) return 8;
+  if (width >= 768) return 10;
+  return 12;
+}
+
+function pointerClientXY(
+  e: MouseEvent<SVGElement> | TouchEvent<SVGElement>,
+): { clientX: number; clientY: number } {
+  if ('touches' in e) {
+    const t = e.touches[0] ?? e.changedTouches[0];
+    if (t) return { clientX: t.clientX, clientY: t.clientY };
+  }
+  const me = e as MouseEvent<SVGElement>;
+  return { clientX: me.clientX, clientY: me.clientY };
+}
 
 function stripCollectionBbox(geo: FeatureCollection): FeatureCollection {
   return {
@@ -133,7 +150,8 @@ export function RussiaMapSVG({
 
   const projection = useMemo(() => {
     if (size.width < 10 || size.height < 10) return null;
-    return createRussiaProjection(size.width, size.height, MAP_PADDING);
+    const pad = mapPaddingForSize(size.width, size.height);
+    return createRussiaProjection(size.width, size.height, pad);
   }, [size.width, size.height]);
 
   const pathGenerator = useMemo(
@@ -192,22 +210,47 @@ export function RussiaMapSVG({
     [onSelect, visibleIds],
   );
 
-  const setHoverFromEvent = useCallback(
+  const setHoverFromPointer = useCallback(
     (
       pilotId: RegionId | null,
       geoName: string,
-      e: MouseEvent<SVGElement>,
+      clientX: number,
+      clientY: number,
     ) => {
       const rect = containerRef.current?.getBoundingClientRect();
       setHovered({
         pilotId,
         geoName,
-        x: e.clientX - (rect?.left ?? 0),
-        y: e.clientY - (rect?.top ?? 0),
+        x: clientX - (rect?.left ?? 0),
+        y: clientY - (rect?.top ?? 0),
       });
     },
     [],
   );
+
+  const setHoverFromEvent = useCallback(
+    (
+      pilotId: RegionId | null,
+      geoName: string,
+      e: MouseEvent<SVGElement> | TouchEvent<SVGElement>,
+    ) => {
+      const { clientX, clientY } = pointerClientXY(e);
+      setHoverFromPointer(pilotId, geoName, clientX, clientY);
+    },
+    [setHoverFromPointer],
+  );
+
+  useEffect(() => {
+    if (!hovered) return;
+    const onPointerDown = (e: PointerEvent) => {
+      const root = containerRef.current;
+      if (root && !root.contains(e.target as Node)) {
+        setHovered(null);
+      }
+    };
+    document.addEventListener('pointerdown', onPointerDown);
+    return () => document.removeEventListener('pointerdown', onPointerDown);
+  }, [hovered]);
 
   const pilotFeatures = useMemo(
     () =>
@@ -231,7 +274,10 @@ export function RussiaMapSVG({
     loadState === 'ready' && size.width > 0 && pathGenerator !== null;
 
   return (
-    <div ref={containerRef} className="absolute inset-0">
+    <div
+      ref={containerRef}
+      className="absolute inset-0 touch-manipulation"
+    >
       {loadState === 'loading' ? <MapEmptyState variant="loading" /> : null}
       {loadState === 'error' ? <MapEmptyState variant="error" /> : null}
 
@@ -267,6 +313,8 @@ export function RussiaMapSVG({
                   onMouseEnter={(e) => setHoverFromEvent(null, geoName, e)}
                   onMouseMove={(e) => setHoverFromEvent(null, geoName, e)}
                   onMouseLeave={() => setHovered(null)}
+                  onTouchStart={(e) => setHoverFromEvent(null, geoName, e)}
+                  onTouchMove={(e) => setHoverFromEvent(null, geoName, e)}
                 />
               );
             })}
@@ -316,6 +364,8 @@ export function RussiaMapSVG({
                   onMouseEnter={(e) => setHoverFromEvent(pilotId, geoName, e)}
                   onMouseMove={(e) => setHoverFromEvent(pilotId, geoName, e)}
                   onMouseLeave={() => setHovered(null)}
+                  onTouchStart={(e) => setHoverFromEvent(pilotId, geoName, e)}
+                  onTouchMove={(e) => setHoverFromEvent(pilotId, geoName, e)}
                   onClick={(e) => {
                     e.stopPropagation();
                     handlePilotSelect(pilotId);
@@ -343,6 +393,12 @@ export function RussiaMapSVG({
                     setHoverFromEvent(item.pilotId, item.geoName, e)
                   }
                   onMouseLeave={() => setHovered(null)}
+                  onTouchStart={(e) =>
+                    setHoverFromEvent(item.pilotId, item.geoName, e)
+                  }
+                  onTouchMove={(e) =>
+                    setHoverFromEvent(item.pilotId, item.geoName, e)
+                  }
                   onClick={(e) => {
                     e.stopPropagation();
                     handlePilotSelect(item.pilotId!);

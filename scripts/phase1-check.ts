@@ -102,7 +102,7 @@ const ruPath = join(ROOT, 'src/content/ru.ts');
 const ruContent = readFileSync(ruPath, 'utf8');
 if (ruContent.includes('export const ru')) pass('ru constant');
 else fail('ru.ts must export ru');
-if (ruContent.includes('VulnMap')) pass('branding strings');
+if (ruContent.includes('Сова')) pass('branding strings');
 
 console.log('\n6. SVG map (no Leaflet)');
 const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as {
